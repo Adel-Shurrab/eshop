@@ -2,7 +2,7 @@
 
 A comprehensive PHP-based eCommerce solution built with modern web technologies. UniMart offers a feature-rich shopping experience for customers and powerful management tools for administrators.
 
-![eshop](assets/theme/images/home/logo.png)
+![eshop](public/assets/eshop/images/home)
 
 ## 📋 Table of Contents
 
