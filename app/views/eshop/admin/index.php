@@ -230,7 +230,7 @@ renderSidebar($data, 'admin');
         <!-- Second Row: Charts and Recent Activity -->
         <div class="row">
             <!-- Sales Overview -->
-            <div class="col-lg-8">
+            <div class="col-lg-8">  
                 <div class="chart-container">
                     <div class="chart-header">
                         <h4 class="chart-title"><i class="fa fa-line-chart"></i> Sales Overview</h4>
