@@ -188,6 +188,7 @@ renderSidebar($data, 'admin');
                                 <?php endif; ?>
                             </tbody>
                         </table>
+                        <?= $data['pagination'] ?>
                     </div>
                 </div>
             </div>

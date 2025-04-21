@@ -1,5 +1,4 @@
 <?php
-// filepath: /c:/xampp/htdocs/eshop/app/views/eshop/admin/categories.php
 renderHeader($data, 'admin');
 renderSidebar($data, 'admin');
 ?>

@@ -523,7 +523,7 @@ class ProductModel
 
             $html .= '<tr>';
             $html .= '<td>' . htmlspecialchars($product['id'], ENT_QUOTES, 'UTF-8') . '</td>';
-            $html .= "<td><a href=\"#\" title=\"{$description}\">{$truncatedDescription}</a></td>";
+            $html .= "<td><a href='" . BASE_URL . "productDetails/" . htmlspecialchars($product['slag'], ENT_QUOTES, 'UTF-8') . "' title='" . htmlspecialchars($description, ENT_QUOTES, 'UTF-8') . "'>" . $truncatedDescription . "</a></td>";
             $html .= '<td>' . htmlspecialchars($categoryName, ENT_QUOTES, 'UTF-8') . '</td>';
             $html .= '<td>$' . number_format((float)$product['price'], 2) . '</td>';
             $html .= '<td>' . (int)$product['quantity'] . ' stock</td>';

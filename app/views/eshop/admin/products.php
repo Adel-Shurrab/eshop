@@ -557,13 +557,14 @@ renderSidebar($data, 'admin');
                                     <tbody id="table_body">
                                         <?php if ($data['tbl_rows'] === ''): ?>
                                             <tr>
-                                                <td colspan="5" class="text-center">No products found</td>
+                                                <td colspan="9" class="text-center">No products found</td>
                                             </tr>
                                         <?php else : ?>
                                             <?= $data['tbl_rows'] ?>
                                         <?php endif; ?>
                                     </tbody>
                                 </table>
+                                <?= $data['pagination'] ?>
                             </div>
                         </div>
                     </div>

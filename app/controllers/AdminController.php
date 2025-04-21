@@ -50,13 +50,23 @@ class AdminController extends Controller
 
         $productModel = $this->model('Product');
 
-        $products = $productModel->getProducts();
+        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+        $itemsPerPage = 13;
+
+        $totalProductsResult = $productModel->getProducts();
+        $totalProducts = count($totalProductsResult);
+
+        $offset = ($currentPage - 1) * $itemsPerPage;
+        $products = array_slice($totalProductsResult, $offset, $itemsPerPage);
+
         $tbl_rows = $productModel->makeTable($products);
         $data['tbl_rows'] = $tbl_rows;
 
         $enabledCategories = $productModel->getEnabledCategories();
         $parentOptions = $productModel->makeParentOptions($enabledCategories);
         $data['parentOptions'] = $parentOptions;
+
+        $data['pagination'] = renderPagination($totalProducts, $itemsPerPage, $currentPage, BASE_URL . 'admin/products');
 
         $data['page_title'] = 'Admin';
         $this->view('/admin/products', $data);
@@ -71,21 +81,36 @@ class AdminController extends Controller
         // Check if filtering by user
         $user_filter = $_GET['user'] ?? '';
         
+        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+        $itemsPerPage = 7;
+        
         if (!empty($user_filter)) {
             // If user filter is provided, get orders for that user
-            $orders = $orderModel->getOrdersByUser($user_filter);
+            $allOrders = $orderModel->getOrdersByUser($user_filter);
             $data['user_filter'] = $user_filter;
         } else {
             // Otherwise get all orders
-            $orders = $orderModel->getAllOrders();
+            $allOrders = $orderModel->getAllOrders();
         }
+        
+        $totalOrders = count($allOrders);
+        $offset = ($currentPage - 1) * $itemsPerPage;
+        $orders = array_slice($allOrders, $offset, $itemsPerPage);
 
         foreach ($orders as &$order) {
             $order['items'] = $orderModel->getOrderItems((int)$order['id']);
         }
 
+        // Count orders by status for statistics
+        $data['total_orders'] = $totalOrders;
+        $data['pending_orders'] = $orderModel->countOrdersByStatus('pending');
+        $data['completed_orders'] = $orderModel->countOrdersByStatus('shipped') + $orderModel->countOrdersByStatus('delivered');
+        $data['cancelled_orders'] = $orderModel->countOrdersByStatus('cancelled');
+
         $data['orders'] = $orders;
         $data['page_title'] = 'Admin';
+        $data['pagination'] = renderPagination($totalOrders, $itemsPerPage, $currentPage, BASE_URL . 'admin/orders');
+        
         $this->view('/admin/orders', $data);
     }
 
@@ -97,7 +122,14 @@ class AdminController extends Controller
         $countriesModel = new CountriesModel();
         $orderModel = new CheckoutModel();
 
-        $users = $userModel->getUsers();
+        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+        $itemsPerPage = 7;
+
+        $totalUsersResult = $userModel->getUsers();
+        $totalUsers = count($totalUsersResult);
+
+        $offset = ($currentPage - 1) * $itemsPerPage;
+        $users = array_slice($totalUsersResult, $offset, $itemsPerPage);
 
         foreach ($users as &$user) {
             $user['countries'] = $countriesModel->getCountries();
@@ -107,6 +139,7 @@ class AdminController extends Controller
         $data['users'] = $users;
         $data['page_title'] = 'Admin';
         $data['countries'] = $countriesModel->getCountries();
+        $data['pagination'] = renderPagination($totalUsers, $itemsPerPage, $currentPage, BASE_URL . 'admin/users');
 
         $this->view('/admin/users', $data);
     }
