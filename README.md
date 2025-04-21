@@ -258,7 +258,7 @@ unimart/
 
 Access the admin dashboard at `/admin` with the following default credentials:
 - Email: admin@example.com
-- Password: admin123
+- Password: Admin123@$
 
 The admin panel includes:
 - **Products Management**: Add, edit, delete products and manage inventory.
