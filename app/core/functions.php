@@ -54,3 +54,35 @@ function displaySessionMessage(): void
         unset($_SESSION['msg']);
     }
 }
+
+function renderPagination(int $totalItems, int $itemsPerPage, int $currentPage, string $baseUrl): string
+{
+    $totalPages = (int)ceil($totalItems / $itemsPerPage);
+    $paginationHtml = '<ul class="pagination">';
+
+    // Previous button
+    if ($currentPage > 1) {
+        $paginationHtml .= '<li><a href="' . $baseUrl . '?page=' . ($currentPage - 1) . '">&laquo;</a></li>';
+    } else {
+        $paginationHtml .= '<li class="disabled"><span>&laquo;</span></li>';
+    }
+
+    // Page numbers
+    for ($i = 1; $i <= $totalPages; $i++) {
+        if ($i == $currentPage) {
+            $paginationHtml .= '<li class="active"><span>' . $i . '</span></li>';
+        } else {
+            $paginationHtml .= '<li><a href="' . $baseUrl . '?page=' . $i . '">' . $i . '</a></li>';
+        }
+    }
+
+    // Next button
+    if ($currentPage < $totalPages) {
+        $paginationHtml .= '<li><a href="' . $baseUrl . '?page=' . ($currentPage + 1) . '">&raquo;</a></li>';
+    } else {
+        $paginationHtml .= '<li class="disabled"><span>&raquo;</span></li>';
+    }
+
+    $paginationHtml .= '</ul>';
+    return $paginationHtml;
+}

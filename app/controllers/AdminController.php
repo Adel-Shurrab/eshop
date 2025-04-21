@@ -22,13 +22,23 @@ class AdminController extends Controller
 
         $categoryModel = $this->model('Category');
 
-        $categories = $categoryModel->getCategories();
+        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+        $itemsPerPage = 13;
+
+        $totalCategoriesResult = $categoryModel->getCategories();
+        $totalCategories = count($totalCategoriesResult);
+
+        $offset = ($currentPage - 1) * $itemsPerPage;
+        $categories = array_slice($totalCategoriesResult, $offset, $itemsPerPage);
+
         $tbl_rows = $categoryModel->makeTable($categories);
         $data['tbl_rows'] = $tbl_rows;
 
         $enabledCategories = $categoryModel->getEnabledCategories();
         $parentOptions = $categoryModel->makeParentOptions($enabledCategories);
         $data['parentOptions'] = $parentOptions;
+
+        $data['pagination'] = renderPagination($totalCategories, $itemsPerPage, $currentPage, BASE_URL . 'admin/categories');
 
         $data['page_title'] = 'Admin';
         $this->view('/admin/categories', $data);

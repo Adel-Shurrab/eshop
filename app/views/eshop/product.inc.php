@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <?php if ($row['quantity'] == 0): ?>
-                    <p class="new">Out of Stock</p>
+                    <div class="out-of-stock">Out of Stock</div>
                 <?php endif ?>
                 <div class="choose">
                     <ul class="nav nav-pills nav-justified">
@@ -85,3 +85,43 @@
         }
     }
 </script>
+
+<style>
+    .product-image-wrapper {
+        border: 1px solid #f7f7f5;
+        overflow: hidden;
+        margin-bottom: 30px;
+        position: relative;
+    }
+    .productinfo {
+        padding: 10px;
+    }
+    .productinfo h2 {
+        color: #FE980F;
+        font-size: 24px;
+    }
+    .productinfo p {
+        height: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .add-to-cart {
+        background-color: #FE980F;
+        color: #fff;
+        border: none;
+        margin-top: 10px;
+    }
+    .add-to-cart:hover {
+        background-color: #f7a700;
+    }
+    .out-of-stock {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(255, 0, 0, 0.7);
+        color: white;
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+</style>

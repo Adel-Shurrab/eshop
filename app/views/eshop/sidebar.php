@@ -19,7 +19,7 @@
                                     <ul>
                                         <?php foreach ($data['categories'] as $subCategory): ?>
                                             <?php if ($subCategory['parent'] == $category['id']): ?>
-                                                <li><a href=""><?= htmlspecialchars($subCategory['category'], ENT_QUOTES, 'UTF-8') ?></a></li>
+                                                <li><a href="<?= BASE_URL . 'shop?category=' . $subCategory['id'] ?>"><?= htmlspecialchars($subCategory['category'], ENT_QUOTES, 'UTF-8') ?></a></li>
                                             <?php endif; ?>
                                         <?php endforeach; ?>
                                     </ul>
