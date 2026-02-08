@@ -10,17 +10,18 @@
 
 ## 📋 Table of Contents
 
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [System Requirements](#system-requirements)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Project Structure](#project-structure)
-- [Usage](#usage)
-- [Database Schema](#database-schema)
-- [Security Features](#security-features)
-- [Contributing](#contributing)
-- [License](#license)
+- [✨ Features](#-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [💻 System Requirements](#-system-requirements)
+- [🚀 Installation](#-installation)
+- [⚙️ Configuration](#️-configuration)
+- [📁 Project Structure](#-project-structure)
+- [📖 Usage](#-usage)
+- [🗄️ Database Schema](#️-database-schema)
+- [🔒 Security Features](#-security-features)
+- [🎯 Project Purpose](#-project-purpose)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
 ## ✨ Features
 
