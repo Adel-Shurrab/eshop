@@ -372,6 +372,8 @@ Please ensure:
 
 This project was developed as a **comprehensive PHP training project** to master core web development concepts before transitioning to modern frameworks like Laravel. It demonstrates the ability to build a complete, production-ready application from scratch without relying on external frameworks.
 
+> **Note:** This project was developed locally over several weeks as a learning exercise and uploaded to GitHub upon completion. The commit history reflects the final working version rather than incremental development stages.
+
 ### Learning Objectives Achieved ✅
 
 - ✅ **Custom MVC Architecture** - Built from scratch without frameworks
