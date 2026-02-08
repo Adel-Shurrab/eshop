@@ -1,6 +1,6 @@
 # 🛒 UniMart - E-Commerce Platform
 
-> **A complete e-commerce platform built from scratch using pure PHP and custom MVC architecture.**  
+> **A complete e-commerce platform built from scratch using pure PHP and custom MVC architecture.**
 > This project demonstrates advanced PHP development skills and modern web application architecture, created as a comprehensive training project before transitioning to Laravel framework.
 
 ![PHP Version](https://img.shields.io/badge/PHP-8.2%2B-blue)
@@ -412,16 +412,12 @@ While this project is complete for its training purpose, potential additions for
 - Advanced search with filters
 - Multi-language support
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 👤 Author
 
 **Your Name**
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+- GitHub: [@Adel-Shurrab](https://github.com/Adel-Shurrab)
+- Email: adelshurrab2003@gmail.com
 
 ## 🙏 Acknowledgments
 
